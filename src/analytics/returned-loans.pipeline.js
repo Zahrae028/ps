@@ -22,14 +22,7 @@ export function buildReturnedLoansPipeline() {
       averageDurationDays:{$avg: "durationDays"}
     }},
     { /* TODO 4 : category, returnedCount, moyenne arrondie, sans _id */ },
-    {$project: {
-      _id : 0,
-      category : "$_id",
-      returnedCount : 1,
-      averageDurationDays : 1
-
-
-    }},
+   
     { $sort: { category: 1 } },
   ];
 }
