@@ -46,7 +46,7 @@ Les traitements à relier et les indications nécessaires sont présents dans le
 
 ### 4. Produire la réponse — 3 minutes
 
-Dans le [contrôleur](../src/controllers/equipment.controller.js), transmettre les informations validées au service, attendre l'enregistrement puis retourner l'équipement créé avec le statut **201**.
+Dans le [contrôleur](../src/controllders/equipment.controller.js), transmettre les informations validées au service, attendre l'enregistrement puis retourner l'équipement créé avec le statut **201**.
 
 Le contrôleur ne doit pas appliquer les règles de nettoyage ou accéder directement à la base.
 

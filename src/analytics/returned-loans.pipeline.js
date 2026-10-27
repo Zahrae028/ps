@@ -6,9 +6,13 @@ export function buildReturnedLoansPipeline() {
   throw notImplemented('MES 2 / rapport des prets rendus');
   return [
     {  /* TODO 1 : status RETURNED */ },
+  
+    {$match :{status: "returned"}},
+
     { $lookup: { from: 'equipments', localField: 'equipmentId', foreignField: '_id', as: 'equipment' } },
     { $unwind: '$equipment' },
     { /* TODO 2 : equipment.isArchived false */ },
+    {$match: {"equipment.isArchived": false}},
     { /* TODO 3 : categorie, returnedCount et averageDurationDays */ },
     { /* TODO 4 : category, returnedCount, moyenne arrondie, sans _id */ },
     { $sort: { category: 1 } },
