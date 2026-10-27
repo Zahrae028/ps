@@ -14,6 +14,13 @@ export function buildReturnedLoansPipeline() {
     { /* TODO 2 : equipment.isArchived false */ },
     {$match: {"equipment.isArchived": false}},
     { /* TODO 3 : categorie, returnedCount et averageDurationDays */ },
+    
+
+    {$groyp: {
+      _id : "$equipment.category",
+      returnedCount: {$sum:1},
+      averageDurationDays:{$avg: "durationDays"}
+    }},
     { /* TODO 4 : category, returnedCount, moyenne arrondie, sans _id */ },
     { $sort: { category: 1 } },
   ];
